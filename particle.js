@@ -7,15 +7,15 @@ class Particle {
     }
 
     applyForce(force) {
-        this.acc.add(force); // 외부에서 받은 힘 적용
+        this.acc.add(force);
     }
 
     update() {
         this.vel.add(this.acc);
         this.pos.add(this.vel);
-        this.acc.mult(0); // 가속도 초기화
+        this.acc.mult(0);
 
-        // 화면 밖으로 나가면 재설정
+        // 화면 밖으로 나가면 위치 재설정
         if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height) {
             this.pos = createVector(random(width), random(height));
         }
