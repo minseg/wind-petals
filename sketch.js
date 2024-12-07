@@ -4,6 +4,11 @@ function mouseDragged() {
     wind = createVector(mouseX - pmouseX, mouseY - pmouseY).mult(0.1); // 드래그 벡터 계산
 }
 
+function mouseDragged() {
+  repeller.pos.set(mouseX, mouseY);
+}
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight); // 창 크기에 맞는 캔버스 생성
 }
