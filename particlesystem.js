@@ -25,6 +25,13 @@ class ParticleSystem {
         }
     }
 
+    applyAttractorMovement(attractorMovement) {
+        for (let p of this.particles) {
+            let movementForce = attractorMovement.copy().mult(0.1); // Attractor 이동 방향을 힘으로 변환
+            p.applyForce(movementForce);
+        }
+    }
+
     run() {
         for (let p of this.particles) {
             p.update();
