@@ -8,6 +8,14 @@ function mouseDragged() {
   repeller.pos.set(mouseX, mouseY);
 }
 
+function mouseDragged() {
+  if (mouseX < width / 2) {
+      repeller.pos.set(mouseX, mouseY);
+  } else {
+      attractor.pos.set(mouseX, mouseY);
+  }
+}
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight); // 창 크기에 맞는 캔버스 생성
