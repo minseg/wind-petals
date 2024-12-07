@@ -3,6 +3,7 @@ class Attractor {
         this.pos = createVector(x, y);
         this.size = 30;
         this.strength = 50;
+        this.color = color(0, 255, 0, 150); // 초기 색상
     }
 
     attract(particle) {
@@ -16,7 +17,7 @@ class Attractor {
 
     show() {
         noStroke();
-        fill(0, 255, 0, 150);
+        fill(this.color);
         ellipse(this.pos.x, this.pos.y, this.size);
     }
 }

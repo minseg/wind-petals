@@ -3,6 +3,7 @@ class Repeller {
         this.pos = createVector(x, y);
         this.size = 30;
         this.strength = -50;
+        this.color = color(255, 0, 0, 150); // 초기 색상
     }
 
     repel(particle) {
@@ -16,8 +17,7 @@ class Repeller {
 
     show() {
         noStroke();
-        fill(255, 0, 0, 150);
+        fill(this.color);
         ellipse(this.pos.x, this.pos.y, this.size);
     }
 }
-
