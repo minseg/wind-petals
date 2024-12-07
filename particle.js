@@ -24,10 +24,35 @@ function draw() {
         if (p.pos.x < 0 || p.pos.x > width || p.pos.y < 0 || p.pos.y > height) {
             p.pos = createVector(random(width), random(height));
         }
+    }
 
         // 파티클 그리기
         noStroke();
         fill(150, 200, 255, 150);
-        ellipse(p.pos.x, p.pos.y, p.size);
-    });
-}
+        ellipse(p.pos.x, p.pos.y, p.size));
+    
+        
+            particles.forEach(p => {
+                // 바람 힘 적용
+                p.acc.add(wind);
+        
+                // 파티클 속도와 위치 업데이트
+                p.vel.add(p.acc);
+                p.pos.add(p.vel);
+                p.acc.mult(0);
+        
+                // 화면 밖으로 나가면 위치 초기화
+                if (p.pos.x < 0 || p.pos.x > width || p.pos.y < 0 || p.pos.y > height) {
+                    p.pos = createVector(random(width), random(height));
+                }
+        
+                // 파티클 그리기
+                noStroke();
+                fill(150, 200, 255, 150);
+                ellipse(p.pos.x, p.pos.y, p.size);
+            });
+        
+            // 바람 초기화
+            wind.mult(0);
+        };
+
